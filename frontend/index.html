@@ -1,1 +1,27 @@
-
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101827"><title>DocuMind AI</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="top"><div class="brand"><span class="logo">D</span><div><b>DocuMind AI</b><small>Inteligência documental</small></div></div><span class="private">● Ambiente privado</span></header>
+    <section id="auth" class="panel auth-panel">
+      <div class="eyebrow">ACESSO RESTRITO</div><h1>Bem-vindo ao DocuMind</h1><p class="muted">Entre com sua conta administrativa para analisar documentos.</p>
+      <form id="loginForm"><label>Usuário<input id="username" autocomplete="username" value="admin" required></label><label>Senha<input id="password" type="password" autocomplete="current-password" required></label><button class="primary" type="submit">Entrar <span>→</span></button><p id="authMsg" class="message" aria-live="polite"></p></form>
+      <details><summary>Primeira configuração</summary><p class="muted tiny">A criação inicial do administrador é feita uma única vez pela rota de configuração da API, usando um token secreto configurado no Cloudflare. Não existe senha padrão no código.</p></details>
+    </section>
+    <section id="app" class="hidden">
+      <div class="welcome"><div><div class="eyebrow">ESPAÇO DE TRABALHO</div><h1>O que vamos criar hoje?</h1><p class="muted">Adicione fontes, descreva o resultado e deixe a IA organizar as informações.</p></div><button id="logout" class="ghost">Sair ↗</button></div>
+      <section class="panel"><div class="section-title"><div><span class="step">01</span><h2>Documentos de origem</h2></div><span class="muted tiny">MVP inicial</span></div>
+        <label class="drop" for="files"><span class="upload-icon">↑</span><b>Selecione arquivos para análise</b><small>Esta primeira versão processa TXT e CSV. PDF, DOCX e XLSX entram na próxima etapa de parsers.</small><input id="files" type="file" multiple accept=".txt,.csv,text/plain,text/csv"></label><ul id="fileList" class="file-list"></ul>
+      </section>
+      <section class="panel"><div class="section-title"><div><span class="step">02</span><h2>Instruções para a IA</h2></div></div><label>Descreva o que deseja produzir<textarea id="prompt" rows="5" placeholder="Ex.: Analise os arquivos, compare os dados, destaque divergências e produza um relatório executivo com conclusões..."></textarea></label><div class="actions"><span class="muted tiny">A IA deve se basear nos documentos enviados.</span><button id="run" class="primary">Analisar documentos <span>→</span></button></div><p id="runMsg" class="message" aria-live="polite"></p>
+      </section>
+      <section id="resultPanel" class="panel hidden"><div class="section-title"><div><span class="step">03</span><h2>Resultado</h2></div><button id="download" class="ghost">Baixar TXT ↓</button></div><pre id="result" class="result"></pre></section>
+    </section>
+    <footer>DocuMind AI · MVP privado · Seus documentos não devem conter informações sensíveis nesta versão de testes.</footer>
+  </main><script src="./config.js"></script><script src="./app.js"></script>
+</body></html>
